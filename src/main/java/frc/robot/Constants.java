@@ -20,4 +20,5 @@ package frc.robot;
 public final class Constants {
     public static final int ARM_MOTOR_PORT = 0;
     public static final int LIMIT_SWITCH_PORT = 1;
+
 }

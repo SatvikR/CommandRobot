@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.Counter;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
@@ -20,6 +21,8 @@ public class Arm extends SubsystemBase {
     private WPI_TalonSRX mainArm;
     private DigitalInput limitSwitch;
     private Counter counter;
+
+    public Encoder encoder = new Encoder(0, 1);
 
     public Arm() {
         limitSwitch = new DigitalInput(Constants.LIMIT_SWITCH_PORT);

@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.Arm;
+import frc.robot.commands.InitialPosition;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
@@ -18,6 +20,11 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
 
   private Joystick joystick1;
+
+  private static Arm arm;
+  private static InitialPosition m_initalPosition = new InitialPosition(arm);
+
+  // private static Command m_intialPositionCommand = new IntialPosition();
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -30,6 +37,12 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
     joystick1 = new Joystick(0);
+
+    arm = new Arm();
+
+    m_initalPosition.schedule(false);
+
+    CommandScheduler.getInstance().run();
   }
 
   /**
