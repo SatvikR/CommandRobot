@@ -11,7 +11,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.Button;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Arm;
+import frc.robot.commands.ArmToDegree;
 import frc.robot.commands.InitialPosition;
 
 public class Robot extends TimedRobot {
@@ -19,7 +22,12 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private Joystick joystick1;
+  private Joystick joystick1 = new Joystick(0);
+
+  private Button button1 = new JoystickButton(joystick1, 1);
+  private Button button2 = new JoystickButton(joystick1, 2);
+  private Button button3 = new JoystickButton(joystick1, 3);
+  private Button button4 = new JoystickButton(joystick1, 4);
 
   private static Arm arm;
   private static InitialPosition m_initalPosition = new InitialPosition(arm);
@@ -36,7 +44,12 @@ public class Robot extends TimedRobot {
     // and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    joystick1 = new Joystick(0);
+
+
+    button1.whenPressed(new ArmToDegree(arm, 0));
+    button2.whenPressed(new ArmToDegree(arm, 30));
+    button3.whenPressed(new ArmToDegree(arm, 60));
+    button4.whenPressed(new ArmToDegree(arm, 90));
 
     arm = new Arm();
 

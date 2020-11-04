@@ -52,6 +52,10 @@ public class Arm extends SubsystemBase {
         mainArm.set(0.0);
     }
 
+    public void setMotorSpeed(double speed) {
+        mainArm.set(speed);
+    }
+
     protected void initDefaultCommand() {
     }
 

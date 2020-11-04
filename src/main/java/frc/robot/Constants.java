@@ -20,5 +20,6 @@ package frc.robot;
 public final class Constants {
     public static final int ARM_MOTOR_PORT = 0;
     public static final int LIMIT_SWITCH_PORT = 1;
-
+    public static final double TICKS_TO_DEGREES = 360.0 / 512 * 26 / 42 * 18 / 60 * 18 / 84;
+    public static final double KP = 0.5;
 }
