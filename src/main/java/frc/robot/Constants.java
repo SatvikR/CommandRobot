@@ -22,4 +22,9 @@ public final class Constants {
     public static final int LIMIT_SWITCH_PORT = 1;
     public static final double TICKS_TO_DEGREES = 360.0 / 512 * 26 / 42 * 18 / 60 * 18 / 84;
     public static final double KP = 0.5;
+    public static final double KI = 0.5;
+    public static final double KD = 0.1;
+    public static final double iLimit = 10;
+
+    // public static final double errorSum = 0;
 }
